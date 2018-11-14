@@ -21,9 +21,6 @@ public class Main {
                 if(width > 0 && height > 0){
                     validInputEntered = true;
                     grid.createGrid(height,width);
-                    System.out.println(grid.getNoOfCorners());
-                    System.out.println(grid.getNoOfHorizontalLines());
-                    System.out.println(grid.getNoOfVerticalLines());
                 }else{
                     System.out.println("Please enter a value above 0");
                     System.out.println("");
