@@ -4,8 +4,8 @@ import static org.junit.Assert.*;
 
 public class GridTest {
 
-    private static int testHeight = 12;
-    private static int testWidth = 0;
+    private static int testHeight = 1;
+    private static int testWidth = 12;
 
 
     @org.junit.Test
@@ -29,18 +29,32 @@ public class GridTest {
     @org.junit.Test
     public void testNoOfVerticalLines() throws Exception {
         Grid tester = new Grid();
-
+        int expectedValue = 0;
         tester.createGrid(testHeight,testWidth);
 
-        assertEquals(Math.max(0,(testHeight-2)*2),tester.getNoOfVerticalLines());
+        if(testWidth == 1){
+            expectedValue = testHeight - 2;
+        }else if(testWidth > 1){
+            expectedValue = (testHeight - 2) * 2;
+        }
+
+        assertEquals(Math.max(0,expectedValue),tester.getNoOfVerticalLines());
 
     }
     @org.junit.Test
     public void testNoOfHorizontalLines() throws Exception {
         Grid tester = new Grid();
-
+        int expectedValue = 0;
         tester.createGrid(testHeight,testWidth);
-        assertEquals(Math.max(0,(testWidth-2)*2),tester.getNoOfHorizontalLines());
+
+        if(testHeight == 1){
+            expectedValue = testWidth - 2;
+        }else if(testHeight > 1){
+            expectedValue = (testWidth - 2) * 2;
+        }
+
+
+        assertEquals(Math.max(0,expectedValue),tester.getNoOfHorizontalLines());
 
     }
 
